@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para a Lavinia</title>
+<meta name="description" content="Um pequeno lugar na internet que é só nosso.">
+
+<!-- ============================================================
+     FAVICON
+     Troque pela foto real da Lavnia salvando o arquivo em:
+     /assets/images/lavnia.jpg
+     Se o arquivo não existir, o script.js cria automaticamente
+     um favicon de coraçãozinho como alternativa (fallback).
+     ============================================================ -->
+<link rel="icon" id="favicon" type="image/jpeg" href="assets/images/lavnia.jpg">
+
+<!-- Tipografia: Cormorant Garamond (títulos/serifada) + Mulish (texto/sans) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     CANVAS DE PARTÍCULAS (corações flutuando discretamente)
+     ============================================================ -->
+<canvas id="hearts-canvas" aria-hidden="true"></canvas>
+
+<!-- ============================================================
+     TELA DE ABERTURA
+     Edite o nome dela e a frase de abertura aqui.
+     ============================================================ -->
+<section id="opening" class="opening">
+  <div class="opening__content">
+    <p class="opening__eyebrow">para</p>
+    <!-- TROQUE O NOME AQUI, SE PRECISAR -->
+    <h1 class="opening__name">Lavinia <span class="opening__heart">❤</span></h1>
+    <p class="opening__line">Eu fiz um pequeno lugar na internet que é só nosso.</p>
+    <button id="enter-btn" class="btn btn--ghost">Entrar no nosso cantinho</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTEÚDO PRINCIPAL (fica oculto até o clique em "Entrar")
+     ============================================================ -->
+<div id="site" class="site" hidden>
+
+  <!-- ========================= MENU ========================= -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand">
+      <span class="nav__avatar">
+        <!-- Foto pequena da Lavnia no menu. Troque assets/images/lavinia.jpg -->
+        <img src="/Img/lavinia-rosto.jpg" alt="Lavinia" onerror="this.parentElement.classList.add('nav__avatar--empty')">
+      </span>
+      <span>nosso cantinho</span>
+    </a>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="nav-links">
+      <a href="#hero">Início</a>
+      <a href="#historia">Nossa História</a>
+      <a href="#galeria">Momentos</a>
+      <a href="#carta">Carta</a>
+      <a href="#nos">Nós</a>
+    </nav>
+  </header>
+
+  <!-- ========================= HERO ========================= -->
+  <section id="hero" class="hero">
+    <div class="hero__inner">
+      <h2 class="hero__title reveal-text">Lavinia, esse lugar foi feito<br>pensando em você.</h2>
+      <p class="hero__text reveal-text">Entre tantas coisas que existem nesse mundo, uma das minhas favoritas é poder compartilhar a vida com você.</p>
+      <a href="#historia" class="hero__scroll">Ver nossa história <span class="hero__arrow">↓</span></a>
+    </div>
+  </section>
+
+  <!-- ===================== NOSSA HISTÓRIA ==================== -->
+  <section id="historia" class="historia">
+    <div class="section-head">
+      <h2>Nossa história <span class="ornament">❤</span></h2>
+    </div>
+
+    <!-- Cada .timeline__item é um momento. Copie o bloco para adicionar mais.
+         Edite o título (h3) e o texto (p) livremente. -->
+    <ol class="timeline">
+      <li class="timeline__item">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <span class="timeline__tag">o começo</span>
+          <h3>O começo</h3>
+          <p>Foi aqui que tudo começou em uma parada de onibus</p>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <span class="timeline__tag">a percepção</span>
+          <h3>Quando percebi que você era especial</h3>
+          <p>Em algum momento, sem perceber, você deixou de ser apenas alguém importante e passou a ser uma parte importante de mim.</p>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <span class="timeline__tag">o caminho</span>
+          <h3>Nossos momentos</h3>
+          <p>Cada passeio, conversa, risada e até os momentos difíceis ajudaram a construir o que temos hoje.</p>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <span class="timeline__tag">hoje</span>
+          <h3>Hoje</h3>
+          <p>E ainda sinto que estamos apenas começando.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ======================== GALERIA ======================== -->
+  <section id="galeria" class="galeria">
+    <div class="section-head">
+      <h2>Nossos momentos <span class="ornament">📸</span></h2>
+    </div>
+
+    <!-- ============================================================
+         COLOQUE SUAS FOTOS AQUI:
+         /assets/images/foto1.jpg até foto8.jpg
+         Se um arquivo não existir, um placeholder elegante aparece
+         no lugar automaticamente — troque quando quiser, sem
+         precisar mexer no código.
+         Para adicionar/remover fotos, copie ou apague um
+         <figure class="galeria__item">.
+         ============================================================ -->
+    <div class="galeria__grid" id="galeria-grid">
+      <figure class="galeria__item galeria__item--tall" data-caption="Um dos meus dias favoritos.">
+        <img src="Img/IMG_20240803_015014.jpg" alt="Um dos meus dias favoritos." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Um dos meus dias favoritos.</figcaption>
+      </figure>
+      <figure class="galeria__item" data-caption="Você sendo você.">
+        <img src="Img/IMG_20240803_012601.jpg" alt="Você sendo você." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Você sendo você.</figcaption>
+      </figure>
+      <figure class="galeria__item" data-caption="Mais um momento que eu guardaria para sempre.">
+        <img src="Img/F137CF8B-33B5-486A-A52B-6F8722FA30E5.jpg" alt="Mais um momento que eu guardaria para sempre." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Mais um momento que eu guardaria para sempre.</figcaption>
+      </figure>
+      </figure>
+      <figure class="galeria__item" data-caption="Um risinho que eu nunca vou esquecer.">
+        <img src="Img/757F87FC-BCCB-47E8-9D98-0D5F9D517B7A.jpg" alt="Um risinho que eu nunca vou esquecer." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Um risinho que eu nunca vou esquecer.</figcaption>
+      </figure>
+      <figure class="galeria__item galeria__item--tall" data-caption="Simples. Nosso. Perfeito.">
+        <img src="Img/011C9FDF-337B-4906-B468-5942CFF816A0.jpg" alt="Simples. Nosso. Perfeito." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Simples. Nosso. Perfeito.</figcaption>
+      </figure>
+      <figure class="galeria__item" data-caption="Um dia qualquer que virou favorito.">
+        <img src="Img/06C06A5B-C1C8-4D43-8C5A-865375176EB0.jpg" alt="Um dia qualquer que virou favorito." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Um dia qualquer que virou favorito.</figcaption>
+      </figure>
+      <figure class="galeria__item" data-caption="Assim, do jeitinho que é.">
+        <img src="Img/IMG_0734.jpg" alt="Assim, do jeitinho que é." loading="lazy" onerror="this.closest('.galeria__item').classList.add('galeria__item--empty')">
+        <figcaption>Assim, do jeitinho que é.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= UM LUGAR PARA VOCÊ ==================== -->
+  <section id="especial" class="especial">
+    <div class="especial__inner">
+      <span class="especial__avatar">
+        <img src="Img/IMG_0734.jpg" alt="Lavinia" onerror="this.parentElement.classList.add('especial__avatar--empty')">
+      </span>
+      <h2 class="reveal-text">Tem uma coisa que eu quero<br>que você nunca esqueça...</h2>
+      <!-- Texto revelado aos poucos por linha. Edite livremente,
+           mantendo cada linha dentro de um <p class="especial__line"> -->
+      <div class="especial__message" id="especial-message">
+        <p class="especial__line">Você é uma pessoa muito especial para mim.</p>
+        <p class="especial__line">Eu sei que a vida não é perfeita.</p>
+        <p class="especial__line">Sei que existem dias difíceis, discussões, preocupações e momentos complicados.</p>
+        <p class="especial__line">Mas, mesmo assim, entre todas as pessoas que eu poderia ter encontrado nesse caminho, sou muito feliz por ter encontrado você.</p>
+        <p class="especial__line especial__line--signature">Obrigado por fazer parte da minha vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= NÓS =========================== -->
+  <section id="nos" class="contador">
+    <div class="section-head section-head--light">
+      <h2>Nós <span class="ornament">❤</span></h2>
+    </div>
+    <div class="contador__grid" id="contador">
+      <div class="contador__box"><span class="contador__num" id="c-anos">0</span><span class="contador__label">anos</span></div>
+      <div class="contador__box"><span class="contador__num" id="c-meses">0</span><span class="contador__label">meses</span></div>
+      <div class="contador__box"><span class="contador__num" id="c-dias">0</span><span class="contador__label">dias</span></div>
+      <div class="contador__box"><span class="contador__num" id="c-horas">00</span><span class="contador__label">horas</span></div>
+      <div class="contador__box"><span class="contador__num" id="c-min">00</span><span class="contador__label">minutos</span></div>
+      <div class="contador__box"><span class="contador__num" id="c-seg">00</span><span class="contador__label">segundos</span></div>
+    </div>
+    <p class="contador__frase">E contando...</p>
+  </section>
+
+  <!-- ====================== CARTA DE AMOR ===================== -->
+  <section id="carta" class="carta">
+    <div class="section-head">
+      <h2>Uma carta para você <span class="ornament">💌</span></h2>
+    </div>
+
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir a carta" aria-expanded="false">
+      <div class="envelope__back"></div>
+      <!-- Texto da carta. Edite à vontade — quebras de linha viram parágrafos. -->
+      <div class="envelope__letter" id="letter">
+        <p>Minha Lavinia,</p>
+        <p>Eu poderia escrever milhares de coisas sobre você e ainda assim provavelmente esqueceria alguma.</p>
+        <p>Mas existe uma coisa que eu tenho certeza:</p>
+        <p>Eu sou muito feliz por ter você na minha vida.</p>
+        <p>Obrigado por cada sorriso, cada conversa, cada abraço, cada momento e até pelas pequenas coisas que talvez você nem perceba.</p>
+        <p>Espero que, quando você olhar para esse site, consiga sentir pelo menos um pouco do carinho que eu coloquei em cada detalhe.</p>
+        <p class="envelope__signature">Te amo. ❤</p>
+      </div>
+      <div class="envelope__flap"></div>
+      <div class="envelope__front">
+        <span class="envelope__seal">❤</span>
+        <span class="envelope__hint">toque para abrir</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= FINAL =========================== -->
+  <section id="final" class="final">
+    <div class="final__inner">
+      <p class="final__line reveal-text">Se eu pudesse escolher novamente...</p>
+      <p class="final__line final__line--big reveal-text">...eu escolheria você.</p>
+      <p class="final__line final__line--gold reveal-text">Sempre. ❤</p>
+
+      <!-- Easter egg: coraçãozinho escondido -->
+      <button class="secret-heart" id="secret-heart" aria-label="?">❤</button>
+    </div>
+    <footer class="footer">
+      <p>Nosso pequeno universo.</p>
+      <p>Feito com amor, especialmente para Lavinia. ❤</p>
+    </footer>
+  </section>
+
+  <!-- Mensagem do easter egg -->
+  <div class="secret-message" id="secret-message">
+    <p>Você encontrou um cantinho secreto.<br>Te amo, Lavinia. ❤</p>
+  </div>
+
+  <!-- Botão voltar ao topo -->
+  <button class="to-top" id="to-top" aria-label="Voltar ao topo">↑</button>
+
+  <!-- ============================================================
+       BOTÃO DE MÚSICA
+       Coloque o arquivo de áudio em: /assets/audio/nossa-musica.mp3
+       Se o arquivo não existir, o botão simplesmente não faz nada
+       além de avisar discretamente no console — troque o arquivo
+       quando quiser.
+       ============================================================ -->
+  <button class="music-btn" id="music-btn" aria-label="Tocar nossa música">
+    <span class="music-btn__icon">🎵</span>
+  </button>
+  <audio id="bg-audio" src="Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) - LadyGagaVEVO (youtube).mp3" loop preload="none"></audio>
+
+</div><!-- /#site -->
+
+<!-- ================= MODAL DE FOTO (GALERIA) ================= -->
+<div class="modal" id="photo-modal" aria-hidden="true">
+  <button class="modal__close" id="modal-close" aria-label="Fechar">✕</button>
+  <button class="modal__nav modal__nav--prev" id="modal-prev" aria-label="Foto anterior">‹</button>
+  <img class="modal__img" id="modal-img" src="" alt="">
+  <p class="modal__caption" id="modal-caption"></p>
+  <button class="modal__nav modal__nav--next" id="modal-next" aria-label="Próxima foto">›</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
